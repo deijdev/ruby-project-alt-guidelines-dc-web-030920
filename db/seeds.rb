@@ -28,7 +28,7 @@ fav_joke3 = FavoriteJoke.create(user_id: deijah.id,joke_id: joke2.id)
 fav_joke4 = FavoriteJoke.create(user_id: mary.id, joke_id: joke3.id)
 fav_joke5 = FavoriteJoke.create(user_id:richard.id, joke_id: joke5.id)
 fav_joke6 = FavoriteJoke.create(user_id:mary.id, joke_id:joke5.id)
-fav_joke7 = FavoriteJoke.create(user_id:deijah.id, joke_id:joke5.id)
+fav_joke7 = FavoriteJoke.create(user_id:deijah.id, joke_id:joke7.id)
 
 # Pry.start
 # 0

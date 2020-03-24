@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3)e do
+ActiveRecord::Schema.define(version: 3) do
 
   create_table "favorite_jokes", force: :cascade do |t|
     t.integer "user_id"

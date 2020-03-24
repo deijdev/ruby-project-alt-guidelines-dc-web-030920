@@ -1,7 +1,14 @@
 require_relative '../config/environment'
-
-puts "hello world"
-
+require 'pry'
 
 
 
+cli = CommandLineInterface.new
+cli.greet_user
+cli.menu
+# cli.greet
+
+
+
+# Pry.start
+# 0
