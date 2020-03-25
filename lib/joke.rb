@@ -57,11 +57,13 @@ class Joke < ActiveRecord::Base
         end 
 
         if jokes == []
-            puts "No results found."
+            puts "                    "
+            puts "SORRY! Jokes on you. No results found."
         else 
 
             puts "                    "
             puts "Search results for #{keyword}:"
+            puts "*********************"
             puts "                    "
             jokes.each do |joke|
                 puts "Name: #{joke.name}"
@@ -69,6 +71,8 @@ class Joke < ActiveRecord::Base
                 puts "                    "
             end
         end 
+        puts "                    "
+        puts "*********************"
 
     end 
 
