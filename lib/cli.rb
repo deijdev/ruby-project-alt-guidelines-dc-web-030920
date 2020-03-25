@@ -5,7 +5,7 @@ class CommandLineInterface
 
       def run 
         user = greet_user
-        menu(user)
+        selection_menu(user)
       end
 
       def greet_user
@@ -31,19 +31,22 @@ class CommandLineInterface
         puts "4. View your favorite jokes"
         #Search jokes by keyword (Read) 
         puts "5. Search jokes by keyword"
-        #Submit a new joke (Create)
-        puts "6. Think you're funny? Submit a joke!"
-        #exit
-        puts "7. Byeee!"
+        #exit the CLI
+        puts "6. Byeee!"
         puts "*********************"
         puts "                            "    
-      input = gets.chomp
+        return gets.chomp.to_i
+      end
 
-      if  input == "1"
+      # if  input == "1"
+      def return_all_jokes(user)
           Joke.all_jokes
           puts "                                             "
           self.return_to_menu(user)
-      elsif input == "2"
+      end
+
+      # elsif input == "2"
+      def themes_menu(user)
          puts "                                             "
          puts "Here are a list of themes, please select one." 
          puts "*********************"
@@ -59,7 +62,11 @@ class CommandLineInterface
          puts "                                             "
          self.return_to_menu(user)
          end
-      elsif input == "3"
+      end
+
+      # elsif input == "3"
+
+      def joke_randomizer(user)
         puts "                                             "
         puts "Hope this makes you laugh!                   "
         puts "                                             "
@@ -69,28 +76,45 @@ class CommandLineInterface
         puts "                                             "
         puts "*********************"
         self.return_to_menu(user)
-      elsif input == "4"
+      end
+
+      # elsif input == "4"
+
+      def return_favorite_jokes(user)
         puts "                                             "
         users_favorite_jokes(user)
         puts "                                             "
         self.return_to_menu(user)
-      elsif input == "5"
+      end
+
+      # elsif input == "5"
+       def keyword_find(user)
         puts "                                             "
         puts "Please enter a keyword to search by."
         keyword = gets.chomp 
         Joke.find_by_keyword(keyword)
         self.return_to_menu(user) 
-      elsif input == "6"
-        puts "                                             "
-        submit_joke
-        puts "                                             "
-      elsif input == "7"        
-        exit
-      else 
+       end
+
+      # elsif input == "6"
+
+      #   puts "                                             "
+      #   submit_joke
+      #   puts "                                             "
+
+      # elsif input == "7"        
+
+      def error_message(user)
         puts "Please enter a number between 1 and 6"
         self.return_to_menu(user)
       end
-    end  
+  
+
+######## Outside of menu methods#####
+
+
+
+
 
     def users_favorite_jokes(user)
       user.jokes.each do |joke|
@@ -110,10 +134,33 @@ class CommandLineInterface
         self.menu(user)
       end 
     end 
+    
+    def selection_menu(user)
+       input = menu(user)
+      if input == 1
+        return_all_jokes(user)
+      elsif input == 2
+        themes_menu(user)
+      elsif input == 3
+        joke_randomizer(user)
+      elsif input == 4
+        return_favorite_jokes(user)
+      elsif input == 5
+        keyword_find(user)
+      # elsif input == 6
+      elsif input == 6
+          exit
+      else 
+        error_message(user)
+      end
+    end
 
     def exit
+      puts "                                             "
+      puts "Smell ya' later!!!"
       #do nothing, end the app
     end
 
 end
+
 
