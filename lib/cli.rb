@@ -10,9 +10,8 @@ class CommandLineInterface
 
       def greet_user
         puts "Knock knock. Who's there? (Enter Your Name)"
-        user = gets.chomp
+        user = gets.chomp.titleize
         return User.find_by(name: user)
-
       end
 
 
@@ -34,9 +33,10 @@ class CommandLineInterface
         puts "5. Search jokes by keyword"
         #Submit a new joke (Create)
         puts "6. Think you're funny? Submit a joke!"
+        #exit
+        puts "7. Byeee!"
         puts "*********************"
-        puts "                            "
-      #Favorite and unfavorite jokes(Create & Delete)    
+        puts "                            "    
       input = gets.chomp
 
       if  input == "1"
@@ -63,25 +63,33 @@ class CommandLineInterface
         puts "                                             "
         puts "Hope this makes you laugh!                   "
         puts "                                             "
+        puts "*********************"
         random_joke = Joke.all.sample.text
         puts random_joke
         puts "                                             "
+        puts "*********************"
         self.return_to_menu(user)
       elsif input == "4"
         puts "                                             "
         users_favorite_jokes(user)
         puts "                                             "
+        self.return_to_menu(user)
       elsif input == "5"
         puts "                                             "
         puts "Please enter a keyword to search by."
         keyword = gets.chomp 
         Joke.find_by_keyword(keyword)
         self.return_to_menu(user) 
-      elsif         
+      elsif input == "6"
+        puts "                                             "
+        submit_joke
+        puts "                                             "
+      elsif input == "7"        
+        exit
+      else 
         puts "Please enter a number between 1 and 6"
         self.return_to_menu(user)
-      end 
-
+      end
     end  
 
     def users_favorite_jokes(user)
@@ -103,7 +111,9 @@ class CommandLineInterface
       end 
     end 
 
-
+    def exit
+      #do nothing, end the app
+    end
 
 end
 
