@@ -42,10 +42,28 @@ class CommandLineInterface
          user_theme = gets.chomp
          Joke.puts_user_theme_jokes(user_theme)
          puts "                                             "
+      elsif input == "5"
+        puts "                                             "
+        puts "Please enter a keyword to search by."
+        keyword = gets.chomp 
+        Joke.find_by_keyword(keyword)
+
       elsif         
         puts "Please enter a number between 1 and 6"
       end 
 
     end  
+
+
+
+    def reutrn_to_menu
+      puts "RETURN TO MAIN MENU"
+
+    end 
+
+
+
+
+
 end
 

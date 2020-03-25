@@ -29,7 +29,7 @@ class Joke < ActiveRecord::Base
     #finds all jokes that match the user_theme
     def self.find_by_theme(user_theme)
         self.all.select do |joke|
-            joke.theme == user_theme
+            joke.theme.upcase == user_theme.upcase
         end
     end
 
@@ -46,6 +46,44 @@ class Joke < ActiveRecord::Base
             puts "                    "
         end
     end
+
+
+    #should find a joke by entering a key word
+    #searches the text of the joke for that word 
+    def self.find_by_keyword(keyword)
+
+        jokes = self.all.select do |joke| 
+            joke.text.include?(keyword)
+        end 
+
+        if jokes == []
+            puts "No results found."
+        else 
+
+            puts "                    "
+            puts "Search results for #{keyword}:"
+            puts "                    "
+            jokes.each do |joke|
+                puts "Name: #{joke.name}"
+                puts "Joke: #{joke.text}"
+                puts "                    "
+            end
+        end 
+
+    end 
+
+
+    # def self.print_results_by_keyword(keyword)
+    #     puts "                    "
+    #     puts "Search results for #{keyword}:"
+    #     puts "                    "
+    #     jokes.each do |joke|
+    #         puts "Name: #{joke.name}"
+    #         puts "Joke: #{joke.text}"
+    #         puts "                    "
+    #     end
+    # end 
+
 
 
         
