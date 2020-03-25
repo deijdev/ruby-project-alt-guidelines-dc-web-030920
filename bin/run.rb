@@ -4,9 +4,9 @@ require 'pry'
 
 
 cli = CommandLineInterface.new
-cli.greet_user
-cli.menu(user)
-# cli.greet
+cli.run
+# cli.menu(user)
+# # cli.greet
 
 
 

@@ -3,17 +3,23 @@ require 'pry'
 
 class CommandLineInterface 
 
+      def run 
+        user = greet_user
+        menu(user)
+      end
 
       def greet_user
         puts "Knock knock. Who's there? (Enter Your Name)"
-        user = gets.chomp  
-        puts "Welcome to Survival Jokes #{user}, the best resource for jokes to survive pandemics in the world!"
-        user
+        user = gets.chomp
+        return User.find_by(name: user)
+
       end
 
 
-      def menu(user) 
+
+      def menu(user)
         puts "                            "
+        puts "Welcome to Survival Jokes #{user.name}, the best resource for jokes to survive pandemics in the world!"
         puts "Please type a number to select from the menu below:"
         puts "*********************"
         #I can see all jokes in the application (Read)puts 
@@ -36,15 +42,23 @@ class CommandLineInterface
       if  input == "1"
           Joke.all_jokes
           puts "                                             "
-          self.return_to_menu
+          self.return_to_menu(user)
       elsif input == "2"
          puts "                                             "
          puts "Here are a list of themes, please select one." 
-         Joke.all_themes
+         puts "*********************"
+         Joke.all_themes 
+         puts "*********************"
          user_theme = gets.chomp
-         Joke.puts_user_theme_jokes(user_theme)
+         if Joke.find_by_theme(user_theme) == []
+          puts "*********************"
+          puts "No such theme, please try again."
+          puts "*********************"
+          self.return_to_menu(user)
+         else Joke.puts_user_theme_jokes(user_theme)
          puts "                                             "
-         self.return_to_menu
+         self.return_to_menu(user)
+         end
       elsif input == "3"
         puts "                                             "
         puts "Hope this makes you laugh!                   "
@@ -52,35 +66,40 @@ class CommandLineInterface
         random_joke = Joke.all.sample.text
         puts random_joke
         puts "                                             "
-        self.return_to_menu
+        self.return_to_menu(user)
       elsif input == "4"
         puts "                                             "
-        puts user.favorite_jokes
+        users_favorite_jokes(user)
         puts "                                             "
       elsif input == "5"
         puts "                                             "
         puts "Please enter a keyword to search by."
         keyword = gets.chomp 
         Joke.find_by_keyword(keyword)
-        self.return_to_menu 
+        self.return_to_menu(user) 
       elsif         
         puts "Please enter a number between 1 and 6"
-        self.return_to_menu
+        self.return_to_menu(user)
       end 
 
     end  
 
+    def users_favorite_jokes(user)
+      user.jokes.each do |joke|
+        puts "- #{joke.text}"
+      end
+    end
 
-
-    def return_to_menu
+    def return_to_menu(user)
       puts "RETURN TO MAIN MENU: type 'menu' "
       keyword = gets.chomp 
 
       if keyword.upcase == "MENU"
         puts " "
-        self.menu 
+        self.menu(user)
       else 
         puts "Please try again"
+        self.menu(user)
       end 
     end 
 
