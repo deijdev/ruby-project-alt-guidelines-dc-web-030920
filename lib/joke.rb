@@ -88,7 +88,5 @@ class Joke < ActiveRecord::Base
     #     end
     # end 
 
-
-
         
 end 

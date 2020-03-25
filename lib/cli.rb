@@ -1,15 +1,18 @@
 require 'pry'
 
+
 class CommandLineInterface 
+
 
       def greet_user
         puts "Knock knock. Who's there? (Enter Your Name)"
-        user = gets.chomp
+        user = gets.chomp  
         puts "Welcome to Survival Jokes #{user}, the best resource for jokes to survive pandemics in the world!"
+        user
       end
 
 
-      def menu 
+      def menu(user) 
         puts "                            "
         puts "Please type a number to select from the menu below:"
         puts "*********************"
@@ -50,6 +53,10 @@ class CommandLineInterface
         puts random_joke
         puts "                                             "
         self.return_to_menu
+      elsif input == "4"
+        puts "                                             "
+        puts user.favorite_jokes
+        puts "                                             "
       elsif input == "5"
         puts "                                             "
         puts "Please enter a keyword to search by."
@@ -76,8 +83,6 @@ class CommandLineInterface
         puts "Please try again"
       end 
     end 
-
-
 
 
 

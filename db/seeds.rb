@@ -30,5 +30,6 @@ fav_joke5 = FavoriteJoke.create(user_id:richard.id, joke_id: joke5.id)
 fav_joke6 = FavoriteJoke.create(user_id:mary.id, joke_id:joke5.id)
 fav_joke7 = FavoriteJoke.create(user_id:deijah.id, joke_id:joke7.id)
 
+binding.pry
 # Pry.start
-# 0
+0
