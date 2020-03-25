@@ -17,8 +17,8 @@ class CommandLineInterface
         puts "1. See all jokes" 
         #Search jokes by theme (knock knock, blonde, etc.)
         puts "2. Find jokes by theme"
-        #Search jokes by name (Read)
-        puts "3. Find jokes by name"
+        #Receive a random joke (Read)
+        puts "3. See a random joke"
         #View my favorite jokes (Read)
         puts "4. View your favorite jokes"
         #Search jokes by keyword (Read) 
@@ -32,6 +32,8 @@ class CommandLineInterface
 
       if  input == "1"
           Joke.all_jokes
+          puts "                                             "
+          self.return_to_menu
       elsif input == "2"
          puts "                                             "
          puts "Here are a list of themes, please select one." 
@@ -39,6 +41,15 @@ class CommandLineInterface
          user_theme = gets.chomp
          Joke.puts_user_theme_jokes(user_theme)
          puts "                                             "
+         self.return_to_menu
+      elsif input == "3"
+        puts "                                             "
+        puts "Hope this makes you laugh!                   "
+        puts "                                             "
+        random_joke = Joke.all.sample.text
+        puts random_joke
+        puts "                                             "
+        self.return_to_menu
       elsif input == "5"
         puts "                                             "
         puts "Please enter a keyword to search by."
@@ -47,6 +58,7 @@ class CommandLineInterface
         self.return_to_menu 
       elsif         
         puts "Please enter a number between 1 and 6"
+        self.return_to_menu
       end 
 
     end  
