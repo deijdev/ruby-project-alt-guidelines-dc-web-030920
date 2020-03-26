@@ -9,6 +9,15 @@ class CommandLineInterface
       end
 
       def greet_user
+        puts "                            "  
+        puts "                            "  
+    puts'     __________  __  _____________   ____  ________    ________________'   
+    puts'    / ____/ __ \/  |/  /  _/ ____/  / __ \/ ____/ /   /  _/ ____/ ____/'   
+    puts'   / /   / / / / /|_/ // // /      / /_/ / __/ / /    / // __/ / /_    '   
+    puts'  / /___/ /_/ / /  / // // /___   / _, _/ /___/ /____/ // /___/ __/    '   
+    puts'  \____/\____/_/  /_/___/\____/  /_/ |_/_____/_____/___/_____/_/       '                                                                            
+     puts "                            "  
+     puts "                            "  
         puts "Knock knock. Who's there? (Enter Your Name)"
         user = gets.chomp.titleize
         return User.find_by(name: user)
@@ -17,7 +26,6 @@ class CommandLineInterface
 
 
       def menu(user)
-        puts "                            "
         puts "Welcome to Survival Jokes #{user.name}, the best resource for jokes to survive pandemics in the world!"
         puts "Please type a number to select from the menu below:"
         puts "*********************"
@@ -147,20 +155,20 @@ class CommandLineInterface
         return_favorite_jokes(user)
       elsif input == 5
         keyword_find(user)
-      # elsif input == 6
       elsif input == 6
-          exit
+          exit(user)
       else 
         error_message(user)
       end
     end
 
-    def exit
+    def exit(user)
       puts "                                             "
       puts "Smell ya' later!!!"
       #do nothing, end the app
     end
 
 end
+
 
 
