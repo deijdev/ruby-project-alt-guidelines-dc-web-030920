@@ -5,25 +5,29 @@ class CommandLineInterface
 
 
       def greet_user
-        puts "                            "  
-        puts "                            "  
-    puts'     __________  __  _____________   ____  ________    ________________'   
-    puts'    / ____/ __ \/  |/  /  _/ ____/  / __ \/ ____/ /   /  _/ ____/ ____/'   
-    puts'   / /   / / / / /|_/ // // /      / /_/ / __/ / /    / // __/ / /_    '   
-    puts'  / /___/ /_/ / /  / // // /___   / _, _/ /___/ /____/ // /___/ __/    '   
-    puts'  \____/\____/_/  /_/___/\____/  /_/ |_/_____/_____/___/_____/_/       '                                                                            
-     puts "                            "  
-     puts "                            "  
-        puts "Knock knock. Who's there? (Enter Your Name)"
-        user = gets.chomp.titleize
-        return User.find_by(name: user)
+    #     puts "                            "  
+    #     puts "                            "  
+    # puts'     __________  __  _____________   ____  ________    ________________'   
+    # puts'    / ____/ __ \/  |/  /  _/ ____/  / __ \/ ____/ /   /  _/ ____/ ____/'   
+    # puts'   / /   / / / / /|_/ // // /      / /_/ / __/ / /    / // __/ / /_    '   
+    # puts'  / /___/ /_/ / /  / // // /___   / _, _/ /___/ /____/ // /___/ __/    '   
+    # puts'  \____/\____/_/  /_/___/\____/  /_/ |_/_____/_____/___/_____/_/       '                                                                            
+    #  puts "                            "  
+    #  puts "                            "  
+      pastel = Pastel.new
+      font = TTY::Font.new("3d")
+      puts pastel.magenta.bold(font.write('ComicRelief'))
+      puts pastel.white.inverse.bold("Knock knock. Who's there? (Enter Your Name)")
+      user = gets.chomp.titleize
+      return User.find_by(name: user)
       end
 
 
 
       def menu(user)
+        pastel = Pastel.new
         puts "Welcome to Survival Jokes #{user.name}, the best resource for jokes to survive pandemics in the world!"
-        puts "Please type a number to select from the menu below:"
+        puts pastel.white.inverse.bold("Please type a number to select from the menu below:")
         puts "*********************"
         #I can see all jokes in the application (Read)puts 
         puts "1. See all jokes" 
@@ -51,15 +55,16 @@ class CommandLineInterface
 
       # elsif input == "2"
       def themes_menu(user)
+        pastel = Pastel.new
          puts "                                             "
-         puts "Here are a list of themes, please select one." 
+         puts pastel.white.inverse.bold("Here are a list of themes, please select one.") 
          puts "*********************"
          Joke.all_themes 
          puts "*********************"
          user_theme = gets.chomp
          if Joke.find_by_theme(user_theme) == []
           puts "*********************"
-          puts "No such theme, please try again."
+          puts pastel.white.inverse.bold("No such theme, please try again.")
           puts "*********************"
           self.return_to_menu(user)
          else Joke.puts_user_theme_jokes(user_theme)
@@ -93,8 +98,9 @@ class CommandLineInterface
 
       # elsif input == "5"
        def keyword_find(user)
+        pastel = Pastel.new
         puts "                                             "
-        puts "Please enter a keyword to search by."
+        puts pastel.white.inverse.bold("Please enter a keyword to search by.")
         keyword = gets.chomp 
         Joke.find_by_keyword(keyword)
         self.return_to_menu(user) 
@@ -130,6 +136,7 @@ class CommandLineInterface
     end 
     
     def selection_menu(user)
+      pastel = Pastel.new
        input = menu(user)
       if input == 1
         return_all_jokes(user)
@@ -146,7 +153,7 @@ class CommandLineInterface
       else
        puts "                                             "
        puts "                                             "
-        puts "** Please enter a number between 1 and 6 **"
+       puts pastel.white.inverse.bold("Please enter a number between 1 and 6")
         puts "                                             "
         puts "                                             "
         selection_menu(user)
