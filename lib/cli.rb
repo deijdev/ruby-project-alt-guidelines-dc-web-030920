@@ -3,15 +3,6 @@ require 'pry'
 class CommandLineInterface 
 
       def greet_user
-    #     puts "                            "  
-    #     puts "                            "  
-    # puts'     __________  __  _____________   ____  ________    ________________'   
-    # puts'    / ____/ __ \/  |/  /  _/ ____/  / __ \/ ____/ /   /  _/ ____/ ____/'   
-    # puts'   / /   / / / / /|_/ // // /      / /_/ / __/ / /    / // __/ / /_    '   
-    # puts'  / /___/ /_/ / /  / // // /___   / _, _/ /___/ /____/ // /___/ __/    '   
-    # puts'  \____/\____/_/  /_/___/\____/  /_/ |_/_____/_____/___/_____/_/       '                                                                            
-    #  puts "                            "  
-    #  puts "                            "  
       pastel = Pastel.new
       font = TTY::Font.new("3d")
       puts pastel.magenta.bold(font.write('ComicRelief'))

@@ -7,7 +7,6 @@ ann = User.create(name: "Ann")
 mary = User.create(name: "Mary")
 deijah = User.create(name: "Deijah")
 
-
 # seed jokes
 joke1 = Joke.create(name: "Brazil", theme: "Q&A", text: "Q: How many south americans does  it take to screw in a lightbulb? A: a Brazilian")
 joke2 = Joke.create(name: "Bikes", theme: "Q&A", text: "Q: Why did the bicycle collapse A: it was two tired.")
@@ -30,6 +29,6 @@ fav_joke5 = FavoriteJoke.create(user_id:richard.id, joke_id: joke5.id)
 fav_joke6 = FavoriteJoke.create(user_id:mary.id, joke_id:joke5.id)
 fav_joke7 = FavoriteJoke.create(user_id:deijah.id, joke_id:joke7.id)
 
-binding.pry
+
 # Pry.start
 0

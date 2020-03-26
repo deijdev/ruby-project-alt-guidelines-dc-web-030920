@@ -69,23 +69,11 @@ class Joke < ActiveRecord::Base
                 puts "Joke: #{joke.text}"
                 puts "                    "
             end
-        end 
+        end
         puts "                    "
         puts "*********************"
 
     end 
 
 
-    # def self.print_results_by_keyword(keyword)
-    #     puts "                    "
-    #     puts "Search results for #{keyword}:"
-    #     puts "                    "
-    #     jokes.each do |joke|
-    #         puts "Name: #{joke.name}"
-    #         puts "Joke: #{joke.text}"
-    #         puts "                    "
-    #     end
-    # end 
-
-        
-end 
+end
