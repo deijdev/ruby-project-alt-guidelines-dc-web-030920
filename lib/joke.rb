@@ -40,8 +40,7 @@ class Joke < ActiveRecord::Base
         count = 1
         jokes = self.find_by_theme(user_theme)
         jokes.each do |joke|
-            puts "Name: #{joke.name}"
-            puts "Joke: #{joke.text}"
+            puts "Joke #{count}. #{joke.text}"
             count += 1
             puts "                    "
         end

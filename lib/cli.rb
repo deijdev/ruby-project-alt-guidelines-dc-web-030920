@@ -1,8 +1,6 @@
 require 'pry'
 
-
 class CommandLineInterface 
-
 
       def greet_user
     #     puts "                            "  
@@ -48,6 +46,7 @@ class CommandLineInterface
 
       # if  input == "1"
       def return_all_jokes(user)
+        puts "*********************"
           Joke.all_jokes
           puts "                                             "
           self.return_to_menu(user)
@@ -84,8 +83,16 @@ class CommandLineInterface
         puts random_joke
         puts "                                             "
         puts "*********************"
+        puts"Want another random joke? (Press ENTER)"
+        input = gets.chomp
+        if input
+          puts random_joke
+        end
+          puts "                                             "
+          puts "*********************"
         self.return_to_menu(user)
       end
+ 
 
       # elsif input == "4"
 
@@ -120,7 +127,9 @@ class CommandLineInterface
 
     def return_to_menu(user)
       puts "RETURN TO MAIN MENU: type 'menu' "
+      puts "                    "
       keyword = gets.chomp 
+
 
       if keyword.upcase == "MENU"
         puts " "
@@ -134,7 +143,7 @@ class CommandLineInterface
         selection_menu(user)
       end 
     end 
-    
+
     def selection_menu(user)
       pastel = Pastel.new
        input = menu(user)
