@@ -3,10 +3,6 @@ require 'pry'
 
 class CommandLineInterface 
 
-      def run 
-        user = greet_user
-        selection_menu(user)
-      end
 
       def greet_user
         puts "                            "  
@@ -104,20 +100,6 @@ class CommandLineInterface
         self.return_to_menu(user) 
        end
 
-      # elsif input == "6"
-
-      #   puts "                                             "
-      #   submit_joke
-      #   puts "                                             "
-
-      # elsif input == "7"        
-
-      def error_message(user)
-        puts "Please enter a number between 1 and 6"
-        self.return_to_menu(user)
-      end
-  
-
 ######## Outside of menu methods#####
 
 
@@ -136,10 +118,14 @@ class CommandLineInterface
 
       if keyword.upcase == "MENU"
         puts " "
-        self.menu(user)
+        selection_menu(user)
       else 
+        puts "                                             "
+        puts "*********************"
         puts "Please try again"
-        self.menu(user)
+        puts "*********************"
+        puts "                                             "
+        selection_menu(user)
       end 
     end 
     
@@ -157,9 +143,19 @@ class CommandLineInterface
         keyword_find(user)
       elsif input == 6
           exit(user)
-      else 
-        error_message(user)
+      else
+       puts "                                             "
+       puts "                                             "
+        puts "** Please enter a number between 1 and 6 **"
+        puts "                                             "
+        puts "                                             "
+        selection_menu(user)
       end
+    end
+
+    def run 
+      user = greet_user
+      selection_menu(user)
     end
 
     def exit(user)
@@ -169,6 +165,7 @@ class CommandLineInterface
     end
 
 end
+
 
 
 
