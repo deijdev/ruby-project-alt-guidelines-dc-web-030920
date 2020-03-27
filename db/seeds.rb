@@ -18,6 +18,10 @@ joke7 = Joke.create(name: "Holy Water", theme: "DAD JOKES", text: "How do you ma
 joke8 = Joke.create(name: "Politics Are Funny", theme: "DAD JOKES", text: "The secret service isn't allowed to yell 'Get down!' anymore when the president is about to be attacked. Now they have to yell 'Donald, duck!'")
 joke9 = Joke.create(name: "Which Came First?", theme: "DAD JOKES", text: "I ordered a chicken and an egg from Amazon. I’ll let you know")
 joke10 = Joke.create(name: "Coder Money", theme: "CODE", text: "Q:What's the object-oriented way to become wealthy? A: Inheritance")
+joke11 = Joke.create(name:"Take You Out?", theme: "COVID19", text: "If COVID-19 doesn't take you out... Can I?")
+joke12 = Joke.create(name:"Prince Charmin", theme: "COVID19", text: "Baby, do you need toilet paper? Because I can be your Prince Charmin.")
+joke13 = Joke.create(name: "Stay.", theme: "COVID19", text: "I saw you from across the bar. Stay there.")
+
 
 #seed favorite jokes (user_id, joke_id)
 
