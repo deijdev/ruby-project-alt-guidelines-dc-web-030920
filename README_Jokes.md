@@ -8,10 +8,15 @@ COMIC RELIEF
 
 ## How to install the application 
 
-Clone Comic Relief app
-    #Navigate to XYZ github link, download? 
+In your terminal, git clone the Comic Relief app from github 
 
-Run "bundle install" in your terminal 
+    $ git clone git@github.com:deijdev/ruby-project-alt-guidelines-dc-web-030920.git
+
+Open the app in your terminal
+
+    $ cd ruby-project-alt-guidelines-dc-web-030920
+
+Run "bundle install" 
 
     $ bundle install 
 
@@ -34,17 +39,17 @@ Enter your first name
 
 After you enter your name, a list of menu options will be provided. 
 
+#puts image in markdown 
+
 <div align="center">
-
-<img width="200" src="../lib/comicmenu.jpg" alt="Comic Relief Menu" />
-
+<img width="200" src="./lib/comicmenu.jpg" alt="Comic Relief Menu" />
 </div>
 
 Enter the corresponding number and follow the prompts. 
 
 
 
-## what our program looks like
+## What our program looks like
 
 
 ...What your program looks like (screenshots). 
