@@ -8,7 +8,7 @@ class CommandLineInterface
       puts pastel.magenta.bold(font.write('ComicRelief'))
       puts pastel.white.inverse.bold("Knock knock. Who's there? (Enter Your Name)")
       user = gets.chomp.titleize
-      return User.find_by(name: user)
+      return User.find_or_create_by(name: user)
       end
 
 
@@ -104,6 +104,7 @@ class CommandLineInterface
         self.return_to_menu(user) 
        end
 
+
 ######## Outside of menu methods#####
 
 
@@ -170,6 +171,7 @@ class CommandLineInterface
       puts "Smell ya' later!!!"
       #do nothing, end the app
     end
+
 
 end
 
