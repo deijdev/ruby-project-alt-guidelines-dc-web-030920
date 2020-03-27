@@ -52,4 +52,6 @@ Enter the corresponding number and follow the prompts.
 ## What our program looks like
 
 
-...What your program looks like (screenshots). 
+<div align="center">
+<img width="500" src="./lib/AppScreenshot.jpg" alt="Comic Relief Screenshot" />
+</div>

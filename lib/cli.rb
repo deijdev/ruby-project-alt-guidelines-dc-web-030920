@@ -104,7 +104,6 @@ class CommandLineInterface
         self.return_to_menu(user) 
        end
 
-
 ######## Outside of menu methods#####
 
 
@@ -171,7 +170,6 @@ class CommandLineInterface
       puts "Smell ya' later!!!"
       #do nothing, end the app
     end
-
 
 end
 
